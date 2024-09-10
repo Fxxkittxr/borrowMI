@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Fsoweb20242borrowmiApplication<fsoweb20242borrowmi>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.univille.fsoweb20242borrowmi.Fsoweb20242borrowmiApplication",
+            "projectName": "fsoweb20242borrowmi",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
