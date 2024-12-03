@@ -1,13 +1,13 @@
-package br.univille.fsoweb20242.service.impl;
+package br.univille.fsoweb20242borrowmi.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.univille.fsoweb20242.entity.Publicacao;
-import br.univille.fsoweb20242.repository.PublicacaoRepository;
-import br.univille.fsoweb20242.service.PublicacaoService;
+import br.univille.fsoweb20242borrowmi.entity.Publicacao;
+import br.univille.fsoweb20242borrowmi.repository.PublicacaoRepository;
+import br.univille.fsoweb20242borrowmi.service.PublicacaoService;
 
 @Service
 public class PublicacaoServiceImpl implements PublicacaoService{

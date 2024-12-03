@@ -1,13 +1,13 @@
-package br.univille.fsoweb20242.service.impl;
+package br.univille.fsoweb20242borrowmi.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.univille.fsoweb20242.entity.Cliente;
-import br.univille.fsoweb20242.repository.ClienteRepository;
-import br.univille.fsoweb20242.service.ClienteService;
+import br.univille.fsoweb20242borrowmi.entity.Cliente;
+import br.univille.fsoweb20242borrowmi.repository.ClienteRepository;
+import br.univille.fsoweb20242borrowmi.service.ClienteService;
 
 @Service
 public class ClienteServiceImpl implements ClienteService{

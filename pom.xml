@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.univille</groupId>
-	<artifactId>fsoweb20242borrowmi</artifactId>
+	<artifactId>fsoweb20242</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>fsoweb20242borrowmi</name>
+	<name>fsoweb20242</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

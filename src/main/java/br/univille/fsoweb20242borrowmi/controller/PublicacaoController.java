@@ -1,4 +1,4 @@
-package br.univille.fsoweb20242.controller;
+package br.univille.fsoweb20242borrowmi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.univille.fsoweb20242.entity.Publicacao;
-import br.univille.fsoweb20242.repository.PublicacaoRepository;
-import br.univille.fsoweb20242.service.PublicacaoService;
+import br.univille.fsoweb20242borrowmi.entity.Publicacao;
+import br.univille.fsoweb20242borrowmi.repository.PublicacaoRepository;
+import br.univille.fsoweb20242borrowmi.service.PublicacaoService;
 
 @Controller
 @RequestMapping("/publicacao")
@@ -47,7 +47,7 @@ public class PublicacaoController {
     public ModelAndView alterar(@PathVariable("id") long id){
         var umaPublicacao = service.getById(id);
 
-        return new ModelAndView("publicacao/form", 
+        return new ModelAndView("cliente/form", 
                     "publicacao",umaPublicacao);
     }
 

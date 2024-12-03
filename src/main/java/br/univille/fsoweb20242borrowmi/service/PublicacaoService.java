@@ -1,7 +1,8 @@
-package br.univille.fsoweb20242.service;
+package br.univille.fsoweb20242borrowmi.service;
 
 import java.util.List;
-import br.univille.fsoweb20242.entity.Publicacao;
+
+import br.univille.fsoweb20242borrowmi.entity.Publicacao;
 
 public interface PublicacaoService {
     List<Publicacao> getAll();

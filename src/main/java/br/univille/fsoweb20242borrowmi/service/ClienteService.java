@@ -1,7 +1,8 @@
-package br.univille.fsoweb20242.service;
+package br.univille.fsoweb20242borrowmi.service;
 
 import java.util.List;
-import br.univille.fsoweb20242.entity.Cliente;
+
+import br.univille.fsoweb20242borrowmi.entity.Cliente;
 
 public interface ClienteService {
     List<Cliente> getAll();

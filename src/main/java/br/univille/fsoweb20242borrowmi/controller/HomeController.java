@@ -1,4 +1,4 @@
-package br.univille.fsoweb20242.controller;
+package br.univille.fsoweb20242borrowmi.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

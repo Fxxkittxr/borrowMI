@@ -5,7 +5,7 @@
             "name": "Fsoweb20242Application",
             "request": "launch",
             "mainClass": "br.univille.fsoweb20242.Fsoweb20242Application",
-            "projectName": "fsoweb20242borrowmi"
+            "projectName": "fsoweb20242"
         },
         {
             "type": "java",

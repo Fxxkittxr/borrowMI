@@ -1,4 +1,4 @@
-package br.univille.fsoweb20242.entity;
+package br.univille.fsoweb20242borrowmi.entity;
 
 import java.util.Date;
 
