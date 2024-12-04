@@ -1,0 +1,74 @@
+/*Base */
+body {
+    background-color: #ead7d0;
+}
+
+.titulo{
+    padding-top: 50;
+    margin-top: 50;
+    font-size: large;
+}
+
+#publicacao{
+    width: 100px;
+    height: 50px;
+    padding-left: 50px;
+}
+
+#container{
+    width: 700px;
+    height: 110px;
+    background-color: #f0bcac;
+    font-family: cursive;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 10px 20px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px #beb0a7;
+    padding: 10px 10px 10px 10px;
+}
+
+#ofertas{
+    width: 700px;
+    align-content: center;
+    margin: 20px 10px 10px 10px;
+}
+
+#tabelaPublicacoes{
+    width: 1400px;
+    display: ruby-text;
+}
+
+
+
+.botaoCancelarSair{
+    margin: 10px 10px 10px 10px;
+    font-size: larger; 
+    height: 20px;
+}
+
+.form{
+    width: 700px;
+    background-color: #f0bcac;
+    font-family: cursive;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 10px 20px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px #beb0a7;
+    padding: 1em 1.5em
+}
+
+#formPublicacao{
+    height: 500px;
+}
+
+#formNecessidade{
+    height: 370px;
+}
+
+#formClass{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

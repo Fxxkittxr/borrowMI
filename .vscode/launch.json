@@ -2,6 +2,23 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Fsoweb20242Application",
+            "request": "launch",
+            "mainClass": "br.univille.fsoweb20242.Fsoweb20242Application",
+            "projectName": "fsoweb20242"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Fsoweb20242Application<fsoweb20242>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.univille.fsoweb20242.Fsoweb20242Application",
+            "projectName": "fsoweb20242",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Fsoweb20242borrowmiApplication<fsoweb20242borrowmi>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:include="layout :: htmlhead"></head>
+<link th:href="@{/styles.css}" rel="stylesheet">
+
+<body>
+    <main class="container">
+        <br>
+        <div>
+            <a id="sair" href="/" class="botaoCancelarSair">Voltar</a>
+        </div>
+        <div>
+            <h1>Suas Publicações</h1>
+        </div>
+        <a href="/publicacao/novo" class="btn btn-primary">Novo</a>
+        <table class="table" id="tabelapublicacao">
+            <thead>
+                <th>Data de Publicação</th>
+                <th>Usuário</th>
+                <th>Item</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr th:each="umaPublicacao : ${listaPublicacao}">
+                    <td th:text="${umaPublicacao.dataPublicacao}"></td>
+                    <td th:text="${umaPublicacao.usuario}"></td>
+                    <td th:text="${umaPublicacao.item}"></td>
+                    <td th:text="${umaPublicacao.titulo}"></td>
+                    <td th:text="${umaPublicacao.descricao}"></td>
+                    <td th:text="${umaPublicacao.valor}"></td>
+                    <td>
+                        <a th:href="@{'/publicacao/alterar/' + ${umaPublicacao.id}}" class="btn btn-warning">Alterar</a>
+
+                        <a class="btn btn-danger js-delete" th:onclick="|showDeleteModal(${umaPublicacao.id})|">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <div th:include="layout :: footer">(footer)</div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal" tabindex="-1" id="modalPublicacao" data-client-id="">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir Publicação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirma a exclusão desta publicação?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-success" id="btnsim">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Mostra o modal de exclusão com o ID da publicação.
+         * @param {number} publicacaoId ID da publicação a ser excluída.
+         */
+        function showDeleteModal(publicacaoId) {
+            // Pegue o modal pelo ID
+
+            console.log(publicacaoId)
+            const modal = document.getElementById("modalPublicacao");
+
+            // Defina o ID da publicação no atributo `data-client-id`
+            modal.setAttribute("data-client-id", publicacaoId);
+
+            // Mostre o modal usando Bootstrap
+            const bootstrapModal = new bootstrap.Modal(modal);
+            bootstrapModal.show();
+        }
+
+        // Adicionar evento ao botão "Sim" para realizar a exclusão
+        document.getElementById("btnsim").addEventListener("click", function () {
+            const publicacaoId = document.getElementById("modalPublicacao").getAttribute("data-client-id");
+
+            // Redirecione para a rota de exclusão
+            if (publicacaoId) {
+                window.location.href = `publicacao/delete/${publicacaoId}`;
+            }
+        });
+    </script>
+</body>
+
+</html>

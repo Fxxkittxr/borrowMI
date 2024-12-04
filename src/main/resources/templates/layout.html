@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="htmlhead">
+  <head th:fragment="htmlhead">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
         <link rel="stylesheet" th:href="@{/webjars/jquery-ui/1.13.2/jquery-ui.css}" />
-        <link rel="stylesheet" th:href="@{/site.css}" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     </head>
     <body> 
-        <nav th:fragment="menu">
-            
+      <nav th:fragment="menu"></nav>
+      <section>
+        <article>
+            <div id="foto">
+                <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png " alt="Imagem de Usuário">
+            </div>
+            <div>
+                <p id="login" th:text="${postagem.usuario.nome}"></p>
+                <p id="sair">Sair</p>
+            </div>
+            <p class="buttom"><a href="/planos">Suas Publicações</a></p>
+            <p class="buttom"><a href="/data">TESTE</a></p>
+        </article>
+    </section>
+
         </nav>
          
         <div th:fragment="footer" id="footer">

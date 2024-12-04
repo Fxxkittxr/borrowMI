@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <body>
-        
-        <h1 >qq coisa</h1>
-        <p th:text = "${apelido}"></p>
-        
-    </body>
+
+<head th:include="layout :: htmlhead"></head>
+<link th:href="@{/styles.css}" rel="stylesheet">
+
+<body>
+
+    <nav th:replace="layout :: menu"></nav>
+    <main class="container">
+        <br>
+        <a id="sair" href="/" class="botaoCancelarSair">Voltar</a>
+        <a href="/publicacao" class="btn btn-primary">Suas publicações</a>
+        <a href="/necessidades" class="btn btn-primary">Suas necessidades</a>
+        <div id="tabelaPublicacoes">
+            <div>
+                <h2 id="ofertas">Ofertas</h2>
+                <table id="container" class="table" th:each="umaPublicacao : ${listaPublicacao}">
+                    <thead>
+                        <th>Data Publicação</th>
+                        <th>Usuário</th>
+                        <th>Item</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td th:text="${umaPublicacao.dataPublicacao}"></td>
+                            <td th:text="${umaPublicacao.usuario}"></td>
+                            <td th:text="${umaPublicacao.item}"></td>
+                            <td th:text="${umaPublicacao.titulo}"></td>
+                            <td th:text="${umaPublicacao.descricao}"></td>
+                            <td th:text="${umaPublicacao.valor}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="colunaOferNec">
+                <h2 id="ofertas">Necessidades</h2>
+                <table id="container" class="table" th:each="umaNecessidade : ${listaNecessidade}">
+                    <thead>
+                        <th>Data da Necessidade</th>
+                        <th>Data do Fim da Necessidade</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td th:text="${umaNecessidade.dataNecessidade}"></td>
+                            <td th:text="${umaNecessidade.dataFimNecessidade}"></td>
+                            <td th:text="${umaNecessidade.tituloNecessidade}"></td>
+                            <td th:text="${umaNecessidade.descricaoNecessidade}"></td>
+                            <td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+
 </html>
