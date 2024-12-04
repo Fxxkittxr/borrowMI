@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="htmlhead">
+  <head th:fragment="htmlhead">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
         <link rel="stylesheet" th:href="@{/webjars/jquery-ui/1.13.2/jquery-ui.css}" />
-        <link rel="stylesheet" th:href="@{/site.css}" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     </head>
     <body> 
-        <nav th:fragment="menu" class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">UNIVILLE FSO 2024/2</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+      <nav th:fragment="menu"></nav>
+      <section>
+        <article>
+            <div id="foto">
+                <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png " alt="Imagem de Usuário">
+            </div>
+            <div>
+                <p id="login" th:text="${postagem.usuario.nome}"></p>
+                <p id="sair">Sair</p>
+            </div>
+            <p class="buttom"><a href="/planos">Suas Publicações</a></p>
+            <p class="buttom"><a href="/data">TESTE</a></p>
+        </article>
+    </section>
 
         </nav>
          

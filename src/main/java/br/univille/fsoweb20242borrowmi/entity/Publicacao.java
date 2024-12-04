@@ -27,6 +27,7 @@ public class Publicacao {
     private String descricao;
     @Column(length = 100, nullable = false)
     private Long valor;
+    
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataPublicacao;

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:include="layout :: htmlhead"></head>
+<link th:href="@{/styles.css}" rel="stylesheet">
+
+<body>
+    <main class="container">
+        <br>
+        <div>
+            <a id="sair" href="/" class="botaoCancelarSair">Voltar</a>
+        </div>
+        <div>
+            <h1>Suas Necessidades</h1>
+        </div>
+        <a href="/necessidades/novo" class="btn btn-primary">Novo</a>
+        <table class="table" id="tabelapublicacao">
+            <thead>
+                <th>Data da Necessidade</th>
+                <th>Data do Fim da Necessidade</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr th:each="umaNecessidade : ${listaNecessidade}">
+                    <td th:text="${umaNecessidade.dataNecessidade}"></td>
+                    <td th:text="${umaNecessidade.dataFimNecessidade}"></td>
+                    <td th:text="${umaNecessidade.tituloNecessidade}"></td>
+                    <td th:text="${umaNecessidade.descricaoNecessidade}"></td>
+                    <td>
+                        <a th:href="@{'/necessidades/alterar/' + ${umaNecessidade.id}}" class="btn btn-warning">Alterar</a>
+
+                        <a class="btn btn-danger js-delete" th:onclick="|showDeleteModal(${umaNecessidade.id})|">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <div th:include="layout :: footer">(footer)</div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal" tabindex="-1" id="modalNecessidade" data-client-id="">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir Necessidade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirma a exclusão desta necessidade?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Mostra o modal de exclusão com o ID da necessidade.
+         * @param {number} necessidadeId ID da necessidade a ser excluída.
+         */
+        function showDeleteModal(necessidadeId) {
+            // Pegue o modal pelo ID
+            console.log(necessidadeId)
+            const modal = document.getElementById("modalNecessidade");
+
+            // Defina o ID da necessidade no atributo `data-client-id`
+            modal.setAttribute("data-client-id", necessidadeId);
+
+            // Mostre o modal usando Bootstrap
+            const bootstrapModal = new bootstrap.Modal(modal);
+            bootstrapModal.show();
+        }
+
+        // Adicionar evento ao botão "Sim" para realizar a exclusão
+        document.getElementById("btnsim").addEventListener("click", function () {
+            const necessidadeId = document.getElementById("modalNecessidade").getAttribute("data-client-id");
+
+            // Redirecione para a rota de exclusão
+            if (necessidadeId) {
+                window.location.href = `necessidades/delete/${necessidadeId}`;
+            }
+        });
+    </script>
+</body>
+
+</html>

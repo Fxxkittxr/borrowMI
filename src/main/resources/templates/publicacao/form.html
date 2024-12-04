@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:include="layout :: htmlhead"></head>
+<link th:href="@{/styles.css}" rel="stylesheet">
+
+<body>
+    <main class="container">
+        <br>
+        <div id="formClass">
+            <h1>Publicações</h1>
+            <form th:action="@{/publicacao} " method="POST" th:object="${publicacao}">
+
+                <div class="form"  id="formPublicacao">
+
+                    <input type="hidden" th:field="*{id}">
+                    <div class="form-group">
+                        <label for="txtdata">Data da Publicação</label>
+                        <input id="txtdata" th:field="*{dataPublicacao}" class="form-control" type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtusuario">Usuário</label>
+                        <input id="txtusuario" th:field="*{usuario}" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtitem">Item</label>
+                        <input id="txtitem" th:field="*{item}" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txttitulo">Título</label>
+                        <input id="txttitulo" th:field="*{titulo}" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtdescricao">Descrição</label>
+                        <input id="txtdescricao" th:field="*{descricao}" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtvalor">Valor</label>
+                        <input id="txtvalor" th:field="*{valor}" class="form-control" type="text">
+                    </div>
+
+                    <br>
+                    <button type="submit" class="form-control">Enviar</button>
+                </div>
+            </form>
+            <div id="cancelar" class="buttom">
+                <p><a href="/publicacao" class="botaoCancelarSair">Cancelar</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dateField = document.getElementById("txtdata");
+            if (dateField) {
+                const today = new Date().toISOString().split('T')[0];
+                dateField.value = today; // Define a data no formato YYYY-MM-DD
+            }
+        });
+    </script>
+
+    <div th:include="layout :: footer">(footer)</div>
+</body>
+
+</html>

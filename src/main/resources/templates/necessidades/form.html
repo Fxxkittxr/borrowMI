@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:include="layout :: htmlhead"></head>
+<link th:href="@{/styles.css}" rel="stylesheet">
+
+<body>
+    <main class="container">
+        <div id="formClass">
+            <br>
+            <h1>Necessidades</h1>
+            <form th:action="@{/necessidades}" method="POST" th:object="${necessidades}">
+                <div class="form" id="formNecessidade"> 
+
+                    <input type="hidden" th:field="*{id}">
+
+                    <div class="form-group">
+                        <label for="txtdata">Data da Publicação da Necessidade</label>
+                        <input id="txtdata" th:field="*{dataNecessidade}" class="form-control" type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtdataFim">Data do Fim da Necessidade</label>
+                        <input id="txtdataFim" th:field="*{dataFimNecessidade}" class="form-control" type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txttitulo">Título</label>
+                        <input id="txttitulo" th:field="*{tituloNecessidade}" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtdescricao">Descrição da Necessidade</label>
+                        <input id="txtdescricao" th:field="*{descricaoNecessidade}" class="form-control" type="text">
+                    </div>
+
+                    <br>
+                    <button type="submit" class="form-control">Enviar</button>
+                </div>
+            </form>
+            <br>
+            <div id="cancelar" class="buttom">
+                <p><a href="/necessidades" class="botaoCancelarSair">Cancelar</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const startDateField = document.getElementById("txtdata"); // Campo da data de início
+            const endDateField = document.getElementById("txtdataFim"); // Campo da data de fim
+
+            if (startDateField) {
+                const today = new Date().toISOString().split('T')[0];
+                startDateField.value = today; // Define a data atual no campo "Data da Necessidade"
+            }
+
+            if (endDateField) {
+                const today = new Date();
+                const endDate = new Date(today);
+                endDate.setDate(endDate.getDate() + 7); // Adiciona 7 dias à data atual
+                endDateField.value = endDate.toISOString().split('T')[0]; // Define a data no formato YYYY-MM-DD
+            }
+        });
+    </script>
+
+
+    <div th:include="layout :: footer">(footer)</div>
+</body>
+
+</html>
